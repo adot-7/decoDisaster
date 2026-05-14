@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import RegistrationPage from './pages/RegistrationPage'
 import RegisterPage from './pages/RegisterPage'
+import PrivacyPage from './pages/PrivacyPage'
 import RoundPage from './pages/RoundPage'
 import WaitingPage from './pages/WaitingPage'
 import LeaderboardPage from './pages/LeaderboardPage'
@@ -17,7 +18,7 @@ import RotateOverlay from './components/RotateOverlay'
 import CrackTransitionOverlay from './components/CrackTransitionOverlay'
 
 const DEFAULT_PAGE = 'home'
-const ROUTES = new Set(['home', 'about', 'registration', 'register', 'signin', 'round', 'waiting', 'leaderboard', 'end', 'admin'])
+const ROUTES = new Set(['home', 'about', 'registration', 'register', 'privacy', 'signin', 'round', 'waiting', 'leaderboard', 'end', 'admin'])
 
 function pageFromPathname(pathname) {
   const page = pathname.replace(/^\/+|\/+$/g, '').split('/')[0] || DEFAULT_PAGE
@@ -186,6 +187,7 @@ function AuthenticatedApp() {
       about: <AboutPage onNav={navigate} />,
       registration: <RegistrationPage onNav={navigate} />,
       register: <RegisterPage onNav={navigate} />,
+      privacy: <PrivacyPage onNav={navigate} />,
       signin: <SignInPage authError={authError} authSynced={authSynced} />,
       round: <RoundPage onNav={navigate} userRole={userRole} />,
       waiting: <WaitingPage onNav={navigate} userRole={userRole} />,
