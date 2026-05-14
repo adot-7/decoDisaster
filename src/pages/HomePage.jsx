@@ -195,8 +195,18 @@ export default function HomePage({ onNav, userRole, userAllowed, allowedLoading 
         </div>
       </div>
 
-      {/* Hidden privacy policy link for OAuth verification */}
-      <a href="/privacy" className="sr-only">Privacy Policy</a>
+      {/* Footer with privacy and terms links for OAuth verification */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/60 backdrop-blur-sm border-t border-[#2DFF9A]/10 px-4 py-3">
+        <div className="flex justify-center gap-6 text-xs text-slate-400 flex-wrap">
+          <a 
+            href="/privacy" 
+            className="hover:text-[#2DFF9A] transition"
+            style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: '0.05em' }}
+          >
+            Privacy Policy
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
