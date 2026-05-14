@@ -468,7 +468,7 @@ function QuestionCard({ question, questionKey, questionNumber, totalQuestions, o
             spellCheck="false"
             value={answer}
             onChange={(event) => setAnswer(event.target.value)}
-            placeholder="Type your answer here in CAPITAL LETTERS..."
+            placeholder="Type your answer here..."
             className="w-full rounded-[116px] border-2 border-[#2DFF9A]/30 bg-[#0B1F18] px-6 py-4 text-lg text-[#2DFF9A] outline-none transition placeholder:text-[#2DFF9A]/30 focus:border-[#2DFF9A]/60 focus:shadow-[0_0_30px_rgba(45,255,154,0.15)]"
             style={{ textShadow: '0 0 10px rgba(45, 255, 154, 0.3)' }}
           />
