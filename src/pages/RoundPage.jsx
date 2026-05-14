@@ -212,7 +212,7 @@ function StageCharacter({ character, visible, slot }) {
 
   return (
     <div
-      className={`pointer-events-none fixed border hidden sm:block ${borderRadiusClass} ${shadowClass} ${containerTransition} ${
+      className={`pointer-events-none fixed border-4 hidden sm:block ${borderRadiusClass} ${shadowClass} ${containerTransition} ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-35 translate-y-4'
       }`}
       style={{

@@ -42,7 +42,7 @@
         "loki": {
           "name": "Loki",
           "accent": "#2DFF9A",
-          "image": "/images/loki.png",
+          "image": "/characters/loki-right.png",
           "side": "left",
           "size": "20rem",
           "style": { "bottom": "1rem"},
@@ -268,7 +268,7 @@
           "name": "Loki",
           "side": "left",
           "accent": "#2DFF9A",
-          "image": "/images/loki.png",
+          "image": "/characters/loki-right.png",
           "size": "20rem",
           "style": { "bottom": "1rem"},
           "customStyles": {
