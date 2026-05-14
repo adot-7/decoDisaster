@@ -194,6 +194,9 @@ export default function HomePage({ onNav, userRole, userAllowed, allowedLoading 
 
         </div>
       </div>
+
+      {/* Hidden privacy policy link for OAuth verification */}
+      <a href="/privacy" className="sr-only">Privacy Policy</a>
     </div>
   )
 }
