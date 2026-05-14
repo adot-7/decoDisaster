@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Layout({ children, page, onNav, userRole, roundIntroActive }) {
   const isRound = page === 'round'
-  const isHome = page === 'home'
+  const isHome = page === 'home' || page === 'register'
   const isEnd = page === 'end'
 
   return (
