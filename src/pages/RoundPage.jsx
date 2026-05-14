@@ -48,7 +48,7 @@ const FLASHBACK_IMAGES = [
 const FLASHBACK_DURATION = 8 // seconds
 const FLASHBACK_SOUND = '/voices/welldone.mp3' // assuming a sound file
 const DIALOGUE_TRANSITION_MS = 220
-const SCENE_TRANSITION_MS = 520
+const SCENE_TRANSITION_MS = 700
 
 // ─── localStorage helpers ─────────────────────────────────────────────────────
 function cacheKey(roundId) {
@@ -1112,20 +1112,25 @@ export default function RoundPage({ onNav }) {
 
       {/* Background */}
       <div
-        className="fixed inset-0 -z-[60] pointer-events-none"
+        className="fixed inset-0 -z-[60] pointer-events-none transition-all duration-700 ease-out"
         style={{ background: effectiveSceneTheme.bodyElement?.background }}
       />
       <div
-        className="fixed inset-0 -z-50 pointer-events-none"
+        className="fixed inset-0 -z-50 pointer-events-none transition-all duration-700 ease-out"
         style={{ background: effectiveSceneTheme.frame.background }}
       />
       <div
-        className="fixed inset-0 -z-40 pointer-events-none rounded-[2rem]"
-        style={{ background: effectiveSceneTheme.stage.backgroundImage }}
+        className="fixed inset-0 -z-40 pointer-events-none rounded-[2rem] transition-all duration-700 ease-out"
+        style={{
+          backgroundImage: effectiveSceneTheme.stage.backgroundImage,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
       />
       {sceneTransition && (
         <div
-          className={`fixed inset-0 -z-[35] pointer-events-none transition-opacity duration-500 ease-out ${
+          className={`fixed inset-0 -z-[35] pointer-events-none transition-opacity duration-700 ease-out ${
             sceneTransition.visible ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -1139,7 +1144,12 @@ export default function RoundPage({ onNav }) {
           />
           <div
             className="absolute inset-0 rounded-[2rem]"
-            style={{ background: sceneTransition.stageBackground }}
+            style={{
+              backgroundImage: sceneTransition.stageBackground,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+            }}
           />
         </div>
       )}
