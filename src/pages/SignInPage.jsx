@@ -5,6 +5,8 @@ export default function SignInPage({ authError }) {
   const handleGoogleLogin = () => {
     // Redirects to your backend which starts the OAuth flow
     const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+    backendUrl = backendUrl.trim().replace(/\/+$/, '')
+
     window.location.href = backendUrl + '/api/auth/login'
   }
 
