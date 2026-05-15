@@ -9,13 +9,18 @@ function formatTime(totalSeconds) {
   const hours = Math.floor(safe / 3600)
   const minutes = Math.floor((safe % 3600) / 60)
   const seconds = safe % 60
-  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`
+
+  if (hours > 0) {
+    return `${hours}h ${minutes}m ${seconds}s`
+  }
+
   return `${minutes}m ${seconds}s`
 }
 
 export default function LeaderboardPage() {
   const api = useApi()
   const { user } = useUser()
+
   const [entries, setEntries] = useState([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -24,14 +29,24 @@ export default function LeaderboardPage() {
   const [availableAt, setAvailableAt] = useState(null)
 
   const load = async (isRefresh = false) => {
-    if (isRefresh) setRefreshing(true)
-    else setLoading(true)
+    if (isRefresh) {
+      setRefreshing(true)
+    } else {
+      setLoading(true)
+    }
 
     try {
       const result = await api.get('/api/leaderboard')
+
       setEntries(result?.data || [])
       setInfoMessage(result?.message || null)
-      setAvailableAt(result?.availableAt ? new Date(result.availableAt) : null)
+
+      setAvailableAt(
+        result?.availableAt
+          ? new Date(result.availableAt)
+          : null
+      )
+
       setError(null)
     } catch (err) {
       setError(err.message)
@@ -48,20 +63,78 @@ export default function LeaderboardPage() {
     load()
   }, [])
 
-  const myEmail = user?.primaryEmailAddress?.emailAddress
+  useEffect(() => {
+  if (!availableAt || entries.length > 0) {
+    return
+  }
 
-  // ✅ UPDATED: credits with optional URLs
+  const now = new Date()
+  const msLeft = availableAt.getTime() - now.getTime()
+
+  if (msLeft <= 0) {
+    load(true)
+    return
+  }
+
+  const timeout = setTimeout(() => {
+    load(true)
+  }, msLeft + 1000)
+
+  return () => clearTimeout(timeout)
+
+  }, [availableAt])
+
+  const myEmail =
+    user?.primaryEmailAddress?.emailAddress
+
+  const currentUser =
+    myEmail
+      ? entries.find(
+          (entry) => entry.email === myEmail
+        )
+      : null
+
   const credits = [
-    { name: "Akash Parashar", url: "https://www.linkedin.com/in/itsaakaash" },
-    { name: "Rachit Talwar", url: "https://www.linkedin.com/in/rachit-talwar-32013531a" },
-    { name: "Rishi Ramani",url: "https://www.linkedin.com/in/rishi-ramani-6635692b5" },
-    { name: "Arnav Jain", url: "https://www.linkedin.com/in/arnav-jain-820522322/" },
-    { name: "Lipika Aggarwal", url: "https://www.linkedin.com/in/lipikaaggarwal/" },
-    { name: "Aditya Soin", url: "https://www.linkedin.com/in/aditya-soin-75970b277" },
-    { name: "Jiya Aggarwal", url: "https://www.linkedin.com/in/jiya-agrawal-24460537a" },
-    { name: "Vishesh Verma", url: "https://github.com/vishesh1111" },
-    { name: "Bhavay Mahore", url: "https://www.instagram.com/piilkox/" },
-    { name: "Harsh Anand",url:""}
+    {
+      name: "Akash Parashar",
+      url: "https://www.linkedin.com/in/itsaakaash"
+    },
+    {
+      name: "Rachit Talwar",
+      url: "https://www.linkedin.com/in/rachit-talwar-32013531a"
+    },
+    {
+      name: "Rishi Ramani",
+      url: "https://www.linkedin.com/in/rishi-ramani-6635692b5"
+    },
+    {
+      name: "Arnav Jain",
+      url: "https://www.linkedin.com/in/arnav-jain-820522322/"
+    },
+    {
+      name: "Lipika Aggarwal",
+      url: "https://www.linkedin.com/in/lipikaaggarwal/"
+    },
+    {
+      name: "Aditya Soin",
+      url: "https://www.linkedin.com/in/aditya-soin-75970b277"
+    },
+    {
+      name: "Jiya Aggarwal",
+      url: "https://www.linkedin.com/in/jiya-agrawal-24460537a"
+    },
+    {
+      name: "Vishesh Verma",
+      url: "https://github.com/vishesh1111"
+    },
+    {
+      name: "Bhavay Mahore",
+      url: "https://www.instagram.com/piilkox/"
+    },
+    {
+      name: "Harsh Anand",
+      url: ""
+    }
   ]
 
   if (loading) {
@@ -80,10 +153,13 @@ export default function LeaderboardPage() {
 
       {/* HEADER */}
       <div className="mb-12 flex items-center justify-between">
+
         <div>
           <div
             className="text-xl sm:text-2xl font-bold tracking-[0.45em] text-[#2DFF9A]"
-            style={{ fontFamily: "Orbitron, sans-serif" }}
+            style={{
+              fontFamily: "Orbitron, sans-serif"
+            }}
           >
             LEADERBOARD
           </div>
@@ -99,99 +175,175 @@ export default function LeaderboardPage() {
           style={{
             fontFamily: "Orbitron, sans-serif",
             letterSpacing: "0.15em",
-            textShadow: "0 0 8px rgba(45,255,154,0.7)"
+            textShadow:
+              "0 0 8px rgba(45,255,154,0.7)"
           }}
         >
           {refreshing ? "..." : "REFRESH"}
         </button>
+
       </div>
 
-      {error && <Alert type="error">{error}</Alert>}
+      {error && (
+        <Alert type="error">
+          {error}
+        </Alert>
+      )}
+
+      {/* ✅ USER CARD */}
+      {currentUser && (
+        <div className="mb-8 overflow-hidden rounded-[2rem] border border-[#2DFF9A]/20 bg-[#2DFF9A]/10 backdrop-blur-md shadow-[0_0_60px_rgba(45,255,154,0.08)]">
+
+          <div className="grid grid-cols-[100px_1fr_140px_140px] items-center px-6 py-5">
+
+            <div
+              className="text-2xl font-bold text-[#2DFF9A]"
+              style={{
+                textShadow:
+                  "0 0 12px rgba(45,255,154,0.6)"
+              }}
+            >
+              #{currentUser.rank}
+            </div>
+
+            <div className="flex items-center gap-4">
+
+              <div>
+
+                <div className="flex items-center gap-3">
+
+                  <div className="text-white font-medium text-lg">
+                    {currentUser.name}
+                  </div>
+
+                  <div
+                    className="rounded-full border border-[#2DFF9A]/40 bg-[#2DFF9A]/10 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-[#2DFF9A]"
+                    style={{
+                      fontFamily: "Orbitron, sans-serif",
+                      textShadow:
+                        "0 0 10px rgba(45,255,154,0.6)"
+                    }}
+                  >
+                    You
+                  </div>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div className="text-right text-slate-300">
+              {formatTime(currentUser.totalTime)}
+            </div>
+
+            <div className="text-right text-2xl font-bold text-[#2DFF9A] drop-shadow-[0_0_10px_rgba(45,255,154,0.6)]">
+              {currentUser.totalPoints}
+            </div>
+
+          </div>
+
+        </div>
+      )}
 
       {/* 🔥 MAIN PANEL */}
       <div className="rounded-[2rem] border border-[#2DFF9A]/20 bg-black/50 backdrop-blur-md shadow-[0_0_80px_rgba(45,255,154,0.08)] overflow-hidden">
 
         {/* HEADER */}
         <div className="grid grid-cols-[80px_1fr_120px_120px] px-6 py-5 text-xs uppercase tracking-[0.35em] text-[#2DFF9A]/70 border-b border-[#2DFF9A]/10">
+
           <div>Rank</div>
+
           <div>Participant</div>
-          <div className="text-right">Time</div>
-          <div className="text-right">Points</div>
+
+          <div className="text-right">
+            Time
+          </div>
+
+          <div className="text-right">
+            Points
+          </div>
+
         </div>
 
         {entries.length === 0 ? (
           <div className="relative min-h-[620px] overflow-hidden">
 
-            {/* ambient glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(45,255,154,0.05),transparent_60%)]" />
 
-            {/* scanlines */}
             <div className="pointer-events-none absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_bottom,transparent,transparent_2px,white_3px)] bg-[length:100%_4px]" />
 
-            {/* red atmospheric glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,0,0,0.04),transparent_35%)]" />
 
             <div className="relative flex min-h-[620px] flex-col items-center justify-center px-8 text-center">
 
-              {/* title */}
               <div
                 className="text-xs tracking-[0.7em] text-[#2DFF9A]/75 uppercase"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
+                style={{
+                  fontFamily: "Orbitron, sans-serif"
+                }}
               >
                 ACCESS RESTRICTED
               </div>
 
-              {/* divider */}
               <div className="mt-5 h-px w-48 bg-gradient-to-r from-transparent via-red-500/70 to-transparent" />
 
-              {/* lore */}
               <p className="mt-10 max-w-3xl text-lg leading-10 text-slate-300/85">
-                Temporal records remain sealed. Synchronization with the
-                central timeline is incomplete — premature access may
-                destabilize recorded outcomes.
+                Temporal records remain sealed.
+                Synchronization with the
+                central timeline is incomplete —
+                premature access may destabilize
+                recorded outcomes.
               </p>
 
-              {/* timer section */}
               <div className="mt-16">
 
                 <div
                   className="mb-6 text-[10px] tracking-[0.5em] text-slate-500 uppercase"
-                  style={{ fontFamily: "Orbitron, sans-serif" }}
+                  style={{
+                    fontFamily:
+                      "Orbitron, sans-serif"
+                  }}
                 >
                   Timeline Unlock In
                 </div>
 
                 <div className="relative inline-flex items-center justify-center">
 
-                  {/* massive ambient glow */}
                   <div className="absolute inset-0 scale-150 blur-3xl bg-[#2DFF9A]/20" />
 
-                  {/* timer */}
                   <div
                     className="relative text-6xl sm:text-7xl tracking-[0.22em] text-[#2DFF9A]"
                     style={{
-                      fontFamily: "Orbitron, sans-serif",
-                      textShadow: "0 0 30px rgba(45,255,154,0.65)"
+                      fontFamily:
+                        "Orbitron, sans-serif",
+                      textShadow:
+                        "0 0 30px rgba(45,255,154,0.65)"
                     }}
                   >
-                    <Timer targetTime={availableAt} label="" />
+                    <Timer
+                      targetTime={availableAt}
+                      label=""
+                    />
                   </div>
 
                 </div>
 
               </div>
 
-              {/* stabilization bar */}
               <div className="mt-14 h-[3px] w-80 overflow-hidden rounded-full bg-[#2DFF9A]/10">
 
                 <div className="h-full w-1/2 animate-pulse rounded-full bg-[#2DFF9A] shadow-[0_0_20px_rgba(45,255,154,0.95)]" />
 
               </div>
 
-              {/* footer */}
               <div
                 className="mt-10 text-[10px] tracking-[0.45em] text-slate-600 uppercase"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
+                style={{
+                  fontFamily:
+                    "Orbitron, sans-serif"
+                }}
               >
                 Timeline Stabilization In Progress
               </div>
@@ -209,9 +361,12 @@ export default function LeaderboardPage() {
               <div
                 key={entry.userId}
                 className={`grid grid-cols-[80px_1fr_120px_120px] px-6 py-5 items-center border-b border-white/5 transition-all duration-200 hover:bg-[#2DFF9A]/5 ${
-                  entry.email === myEmail ? 'bg-[#2DFF9A]/10' : ''
+                  entry.email === myEmail
+                    ? 'bg-[#2DFF9A]/10'
+                    : ''
                 }`}
               >
+
                 <div
                   className={`text-xl font-bold ${
                     isTop1
@@ -243,10 +398,12 @@ export default function LeaderboardPage() {
                 >
                   {entry.totalPoints}
                 </div>
+
               </div>
             )
           })
         )}
+
       </div>
 
       {/* ✅ CREDITS */}
@@ -254,7 +411,9 @@ export default function LeaderboardPage() {
 
         <div
           className="text-sm sm:text-base uppercase tracking-[0.6em] text-[#2DFF9A] mb-4 drop-shadow-[0_0_10px_rgba(45,255,154,0.6)]"
-          style={{ fontFamily: "Orbitron, sans-serif" }}
+          style={{
+            fontFamily: "Orbitron, sans-serif"
+          }}
         >
           TIMELINE ARCHITECTS
         </div>
@@ -266,26 +425,38 @@ export default function LeaderboardPage() {
         <div className="max-w-md mx-auto space-y-5">
 
           {credits.map((person, index) => {
-            const hasLink = person.url && person.url.trim() !== ""
+            const hasLink =
+              person.url &&
+              person.url.trim() !== ""
 
             return (
               <div
                 key={`${person.name}-${index}`}
                 onClick={() => {
                   if (hasLink) {
-                    window.open(person.url, "_blank")
+                    window.open(
+                      person.url,
+                      "_blank"
+                    )
                   }
                 }}
                 className={`group relative text-slate-400 transition-all duration-300 hover:text-[#2DFF9A] ${
-                  hasLink ? "cursor-pointer" : "cursor-default"
+                  hasLink
+                    ? "cursor-pointer"
+                    : "cursor-default"
                 }`}
-                style={{ fontFamily: "Orbitron, sans-serif" }}
+                style={{
+                  fontFamily:
+                    "Orbitron, sans-serif"
+                }}
               >
+
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-px w-0 bg-[#2DFF9A] transition-all duration-300 group-hover:w-24" />
 
                 <span className="tracking-wide group-hover:tracking-[0.12em] transition-all">
                   {person.name}
                 </span>
+
               </div>
             )
           })}
