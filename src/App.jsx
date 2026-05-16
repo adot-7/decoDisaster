@@ -49,6 +49,7 @@ function AuthenticatedApp() {
   const [roundIntroActive, setRoundIntroActive] = useState(false)
   const [toast, setToast] = useState(null)
   const [transitionToWaiting, setTransitionToWaiting] = useState(false)
+  const [oauthErrorModal, setOauthErrorModal] = useState(false)
 
   useEffect(() => {
     const hashPage = window.location.hash.replace('#', '').trim()
@@ -61,6 +62,17 @@ function AuthenticatedApp() {
     const sync = () => setPage(pageFromPathname(window.location.pathname))
     window.addEventListener('popstate', sync)
     return () => window.removeEventListener('popstate', sync)
+  }, [])
+
+  // Check for OAuth error in URL params
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const error = params.get('error')
+    if (error) {
+      setOauthErrorModal(true)
+      // Clean up the URL
+      window.history.replaceState({}, '', pathForPage(DEFAULT_PAGE))
+    }
   }, [])
 
   // Auto-dismiss toast after 4 seconds
@@ -232,6 +244,30 @@ function AuthenticatedApp() {
             : 'bg-green-500/90 backdrop-blur-sm border border-green-400'
         }`}>
           {toast.message}
+        </div>
+      )}
+
+      {/* OAuth Error Modal */}
+      {oauthErrorModal && (
+        <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/70 px-4">
+          <div className="w-full max-w-md rounded-[2rem] border border-red-400/30 bg-[#1a0a0a]/95 p-8 text-slate-100 shadow-[0_0_80px_rgba(0,0,0,0.65)] backdrop-blur-xl">
+            <h2 className="text-2xl font-black uppercase tracking-[0.18em] text-red-400 sm:text-3xl">
+              Access Denied
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-300">
+              You are not authorized to access this event. Please contact the event admins for assistance.
+            </p>
+            <div className="mt-8 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setOauthErrorModal(false)}
+                className="rounded-full border border-red-400/40 bg-red-500/10 px-6 py-3 text-sm uppercase text-red-300 transition hover:bg-red-500/20"
+                style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: '0.15em' }}
+              >
+                Dismiss
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </>
