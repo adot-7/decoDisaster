@@ -144,15 +144,6 @@ export default function HomePage({ onNav, userRole, userAllowed, allowedLoading 
             ABOUT
           </button>
 
-          {/* PRIVACY */}
-          <button
-            onClick={() => onNav('privacy')}
-            className={`w-full sm:w-auto ${homeButtonClass}`}
-            style={homeButtonStyle}
-          >
-            PRIVACY
-          </button>
-
           {/* LEADERBOARD */}
           <button
             onClick={() => onNav('leaderboard')}
