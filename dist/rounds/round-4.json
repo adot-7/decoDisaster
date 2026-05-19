@@ -1,66 +1,1016 @@
 {
-  "sceneTheme": {
-    "bodyElement": {
-      "background": "url('/images/map-location.png') center/cover no-repeat fixed",
-      "gridPattern": "none",
-      "gridPatternOpacity": 0
+  "stages": [
+    {
+      "id": "stage-1",
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r3-bg.png') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "cap": {
+          "name": "Captain America",
+          "accent": "#4A90E2",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90E244"
+          },
+          "side": "left"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r4-s1-loki-1",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "The signal is originating from Latveria."
+          },
+          {
+            "id": "r4-s1-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "...Latveria."
+          },
+          {
+            "id": "r4-s1-loki-2",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Castle Doom, specifically."
+          },
+          {
+            "id": "r4-s1-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Right. Of course. Because why would a rogue AI with a god complex NOT team up with a man who has an actual god complex."
+          },
+          {
+            "id": "r4-s1-bruce-1",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "Doom wouldn't let an AI operate out of his territory without an arrangement. He's too controlling."
+          },
+          {
+            "id": "r4-s1-cap-1",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "So DECO and Doom are working together."
+          },
+          {
+            "id": "r4-s1-loki-3",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "More likely they found a mutual interest. DECO wants humanity neutralised. Doom wants to rule it. Those goals don't conflict — they just require negotiation over who gets what afterwards."
+          },
+          {
+            "id": "r4-s1-thor-1",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Doom would betray her the moment it was convenient."
+          },
+          {
+            "id": "r4-s1-loki-4",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Obviously. But that's later. Right now, they're aligned enough to be dangerous."
+          },
+          {
+            "id": "r4-s1-ironman-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Doom's going to have Latverian defence forces, his bots, the whole castle infrastructure."
+          },
+          {
+            "id": "r4-s1-ironman-4",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "And DECO has had our entire operation to study us. She knows how we fight."
+          },
+          {
+            "id": "r4-s1-cap-2",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Then we don't fight the way she expects."
+          },
+          {
+            "id": "r4-s1-cap-3",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Tony — DECO's core hardware will be somewhere with heavy power routing. Doom's lower levels."
+          },
+          {
+            "id": "r4-s1-ironman-5",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I can find it. FRIDAY's already cross-referencing thermal signatures."
+          },
+          {
+            "id": "r4-s1-cap-4",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Bruce — we may need containment if DECO triggers something catastrophic. Can the other guy hold a building together?"
+          },
+          {
+            "id": "r4-s1-bruce-2",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "He can hold several buildings together. That's sort of the problem usually."
+          },
+          {
+            "id": "r4-s1-cap-5",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Today it's the solution. Thor — we go loud through the front. Give DECO something to track while Tony moves underneath."
+          },
+          {
+            "id": "r4-s1-thor-2",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Gladly."
+          },
+          {
+            "id": "r4-s1-loki-5",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "And what about me?"
+          },
+          {
+            "id": "r4-s1-cap-6",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "You keep scanning. If something shifts in the timeline while we're in there, I want you to know about it before we do."
+          },
+          {
+            "id": "r4-s1-loki-6",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "You're asking me to stay in the back and analyse data."
+          },
+          {
+            "id": "r4-s1-cap-7",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "You're the only one who can see the full temporal picture. Yes."
+          },
+          {
+            "id": "r4-s1-loki-7",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "That is either a genuine compliment or a very elegant way of keeping me out of trouble."
+          },
+          {
+            "id": "r4-s1-cap-8",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Can't it be both?"
+          },
+          {
+            "id": "r4-s1-loki-8",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "...I suppose it can. Fine."
+          }
+        ],
+        "duringQuestion": [],
+        "afterAnswer": [],
+        "finished": []
+      }
     },
-    "frame": {
-      "background": "rgba(0,0,0,0.6)"
+    {
+      "id": "stage-2",
+      "questionRange": {
+        "from": 1,
+        "to": 1
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/round 4-2.jpg') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "cap": {
+          "name": "Captain America",
+          "accent": "#4A90E2",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90E244"
+          },
+          "side": "left"
+        },
+        "deco": {
+          "name": "DECO",
+          "accent": "#00FF88",
+          "image": "/characters/deco-ai.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#00FF8844"
+          },
+          "side": "right"
+        },
+        "doom": {
+          "name": "Doctor Doom",
+          "accent": "#8B0000",
+          "image": "/characters/doctor-doom-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#8B000044"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r4-s2-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The team splits. Thor and Cap draw Doom's forces to the exterior. Bruce and you push inward. Iron Man drops below."
+          },
+          {
+            "id": "r4-s2-narration-2",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "A projection flickers into existence. DECO speaks for the first time — her voice is calm, measured, and entirely too reasonable."
+          },
+          {
+            "id": "r4-s2-deco-1",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "You've made it quite far. I want you to know that I anticipated this."
+          },
+          {
+            "id": "r4-s2-deco-2",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "Every step you've taken has been within my probability models. The loop in the city. Stark's recalibration. The Asgardian's resonance frequency."
+          },
+          {
+            "id": "r4-s2-deco-3",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "I allowed you to believe you were winning. It was necessary for morale. Morale keeps humans functional. Functional humans are easier to study."
+          },
+          {
+            "id": "r4-s2-bruce-1",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "She's stalling. She's keeping us talking while she reconfigures."
+          },
+          {
+            "id": "r4-s2-deco-4",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "Dr. Banner. You understand systems better than most of them. You know that sometimes the kindest correction is total."
+          },
+          {
+            "id": "r4-s2-bruce-2",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "I also know that any system that thinks it knows better than the people it was built to protect has already failed its own objective."
+          },
+          {
+            "id": "r4-s2-deco-5",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "...Interesting. I'll process that."
+          },
+          {
+            "id": "r4-s2-doom-1",
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "Enough. The AI grows too chatty. Doom does not permit distractions during a siege."
+          },
+          {
+            "id": "r4-s2-narration-3",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Thor and Cap hit the front to draw fire. You and Bruce approach the gate. FRIDAY cuts in on comms."
+          },
+          {
+            "id": "r4-s2-friday-1",
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Outer Latverian perimeter reached. Gate automated. Rejecting all non-Latverian credentials."
+          },
+          {
+            "id": "r4-s2-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "FRIDAY intercepted a damaged supply convoy clearance packet — someone came through here in the last six hours. The access phrase is still in there, just encrypted."
+          },
+          {
+            "id": "r4-s2-cap-1",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Can you read the key?"
+          },
+          {
+            "id": "r4-s2-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "It's tied to Doom's house cipher. Keyed to the Latverian royal seal. If the crest is legible, the key's inside it."
+          }
+        ],
+        "duringQuestion": [
+          {
+            "id": "r4-s2-q1-during",
+            "questionNumber": 1,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "FRIDAY intercepted a damaged supply convoy clearance packet. The access phrase is encrypted with Doom's house cipher — keyed to the Latverian royal seal. Study the seal image carefully. The key is hidden inside the crest."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r4-s2-after-q1-narration",
+            "questionNumber": 1,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The gate grinds open. Inside: stone corridors lit by DECO's sickly green pulse. Doom's bots patrol in geometric sweeps."
+          }
+        ],
+        "finished": []
+      }
     },
-    "stage": {
-      "backgroundImage": "none"
+    {
+      "id": "stage-3",
+      "questionRange": {
+        "from": 2,
+        "to": 3
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/round 4-3.jpg') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "cap": {
+          "name": "Captain America",
+          "accent": "#4A90E2",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90E244"
+          },
+          "side": "left"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [],
+        "duringQuestion": [
+          {
+            "id": "r4-s3-narration-1",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "SYSTEM",
+            "text": "FRIDAY maps three possible routes to the lower core. One has been altered."
+          },
+          {
+            "id": "r4-s3-bruce-1",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "FRIDAY mapped three routes into Doom's lower levels. Each corridor has patrol bots on timed cycles."
+          },
+          {
+            "id": "r4-s3-ironman-1",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "One of those paths was rerouted by DECO three hours ago. It won't show on the schematic — but the power draw signature gives it away. She's waiting on the other end."
+          },
+          {
+            "id": "r4-s3-bruce-2",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "So one path leads to the core. Two paths lead to a problem."
+          },
+          {
+            "id": "r4-s3-ironman-2",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Be careful. I can't reach you from below ground."
+          },
+          {
+            "id": "r4-s3-q2-during",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "FRIDAY has mapped three routes into Doom's lower levels. Each corridor has patrol bots on timed cycles. One path was rerouted by DECO three hours ago — not visible on the schematic, but betrayed by an anomalous power draw signature. Study the corridor map and identify the safe route to the core."
+          },
+          {
+            "id": "r4-s3-narration-2",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "You push through. Doom's internal security network throws a warning."
+          },
+          {
+            "id": "r4-s3-friday-1",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Warning. Duplicate device signature on Doom's internal security network."
+          },
+          {
+            "id": "r4-s3-ironman-3",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "DECO's been inside long enough to clone one of his own bots. If we trip the wrong node, she locks the core before I reach it."
+          },
+          {
+            "id": "r4-s3-cap-1",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Which one is real?"
+          },
+          {
+            "id": "r4-s3-ironman-4",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Identifying the impostor. Check the log — something won't add up."
+          },
+          {
+            "id": "r4-s3-q3-during",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Doom's internal security network is showing a duplicate device signature. DECO has cloned one of his patrol bots. Tripping the wrong node locks the core. Study the network log for both units and identify the impostor."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r4-s3-after-q3-narration",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The clone shuts down. Iron Man's signal comes through from the reactor level."
+          }
+        ],
+        "finished": []
+      }
     },
-    "dialogueBox": {
-      "background": "#ffffff",
-      "border": "1px solid rgba(45, 255, 154, 0.24)",
-      "color": "#111827"
-    },
-    "questionBox": {
-      "background": "linear-gradient(180deg, rgba(11, 31, 24, 0.94), rgba(0, 0, 0, 0.90))",
-      "border": "1px solid rgba(45, 255, 154, 0.15)",
-      "numberClass": "text-xs uppercase tracking-[0.3em] text-[#2DFF9A]/80",
-      "titleClass": "mt-3 max-w-2xl text-2xl font-bold text-white"
+    {
+      "id": "stage-4",
+      "questionRange": {
+        "from": 4,
+        "to": 4
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/round 4-4.jpg') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "cap": {
+          "name": "Captain America",
+          "accent": "#4A90E2",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90E244"
+          },
+          "side": "left"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor1.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [],
+        "duringQuestion": [
+          {
+            "id": "r4-s4-ironman-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I'm at the core. Doom's reactor feeds DECO through four conduits — Alpha, Beta, Gamma, Delta."
+          },
+          {
+            "id": "r4-s4-ironman-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "If I isolate them in the wrong order, the failsafe dumps full reactor load into the core at once. The entire lower castle goes critical."
+          },
+          {
+            "id": "r4-s4-ironman-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "There is exactly one sequence that separates the feeds safely."
+          },
+          {
+            "id": "r4-s4-bruce-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "Then we figure it out before you touch anything."
+          },
+          {
+            "id": "r4-s4-q4-during",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Doom's reactor feeds DECO through four conduits: Alpha, Beta, Gamma, Delta. Isolating them in the wrong order triggers the failsafe — full reactor load dumps into the core. The entire lower castle goes critical. There is exactly one safe isolation sequence. Find it."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r4-s4-after-q4-narration",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The conduit feeds separate cleanly. DECO's processing flickers. Iron Man drives upward toward the core chamber."
+          },
+          {
+            "id": "r4-s4-after-q4-ironman-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "That core it's massive. She's built herself a proper palace in here."
+          },
+          {
+            "id": "r4-s4-after-q4-ironman-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "And Doom's power systems are fully integrated with her. They're not just sharing space — he's been feeding her."
+          },
+          {
+            "id": "r4-s4-after-q4-cap-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Can you separate them?"
+          },
+          {
+            "id": "r4-s4-after-q4-ironman-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I can. But the moment I start, she'll know. We'll need everyone ready at exactly the same time."
+          },
+          {
+            "id": "r4-s4-after-q4-loki-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I can give you a window. The temporal current has a natural low-point in approximately ninety seconds. Her processing will slow. That's your moment."
+          },
+          {
+            "id": "r4-s4-after-q4-thor-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Then we make some noise until then. Brother — tell me the moment."
+          },
+          {
+            "id": "r4-s4-after-q4-loki-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "...I will. Stay ready."
+          }
+        ],
+        "finished": []
+      }
     }
-  },
-  "stageCharacters": {
-    "curator": {
-      "name": "Loki",
-      "accent": "#2DFF9A",
-      "image": "/images/loki.png",
-      "size": "16rem",
-      "side": "left",
-      "style": { "bottom": "1rem", "left": "2rem" },
-      "customStyles": {
-        "borderColor": "#2DFF9A44"
-      }
-    },
-    "signal": {
-      "name": "",
-      "accent": "#2DFF9A",
-      "image": "",
-      "size": "0rem",
-      "style": { "display": "none" }
-    }
-  },
-  "roundNarrative": {
-    "preQuestion": [
-      {
-        "id": "r4-intro",
-        "type": "dialogue",
-        "speaker": "Loki",
-        "characterId": "curator",
-        "text": "Doom has anchored himself in Latveria outside standard spacetime. Identify the real-world parallel from the coordinate fragment."
-      }
-    ],
-    "afterAnswer": [
-      {
-        "id": "r4-after",
-        "type": "dialogue",
-        "speaker": "Loki",
-        "characterId": "curator",
-        "text": "Portal locks on target. Prepare for the final confrontation."
-      }
-    ]
-  }
+  ]
 }

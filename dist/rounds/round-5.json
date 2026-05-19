@@ -1,98 +1,767 @@
 {
-  "sceneTheme": {
-    "bodyElement": {
-      "background": "url('/backgrounds/final-round-bg.png') center/cover no-repeat fixed",
-      "gridPattern": "none",
-      "gridPatternOpacity": 0
-    },
-    "frame": {
-      "background": "rgba(0,0,0,0.5)"
-    },
-    "stage": {
-      "backgroundImage": "none"
-    },
-    "dialogueBox": {
-      "background": "#ffffff",
-      "border": "1px solid rgba(255, 0, 0, 0.26)",
-      "color": "#111827"
-    },
-    "questionBox": {
-      "background": "linear-gradient(180deg, rgba(40, 0, 0, 0.94), rgba(0, 0, 0, 0.90))",
-      "border": "1px solid rgba(255, 0, 0, 0.2)",
-      "numberClass": "text-xs uppercase tracking-[0.3em] text-red-400/80",
-      "titleClass": "mt-3 max-w-2xl text-2xl font-bold text-white italic"
-    },
-    "answerRevealBox": {
-      "background": "linear-gradient(135deg, rgba(40, 0, 0, 0.96), rgba(255, 0, 0, 0.12))",
-      "border": "1px solid rgba(255, 0, 0, 0.24)",
-      "labelClass": "text-xs uppercase tracking-[0.35em] text-red-400/70"
-    }
-  },
-  "stageCharacters": {
-    "curator": {
-      "name": "Doctor Doom",
-      "accent": "#FF4444",
-      "image": "/characters/doctor-doom.png",
-      "size": "20rem",
-      "side": "left",
-      "style": { "bottom": "1rem", "left": "2rem" },
-      "customStyles": {
-        "borderColor": "#FF444444"
-      }
-    },
-    "signal": {
-      "name": "DECO AI",
-      "accent": "#FF0000",
-      "image": "/characters/deco-ai.png",
-      "size": "16rem",
-      "side": "right",
-      "style": { "bottom": "1rem", "right": "2rem" },
-      "customStyles": {
-        "borderColor": "#FF000044"
-      }
-    }
-  },
-  "roundNarrative": {
-    "preQuestion": [
-      {
-        "id": "r5-doom",
-        "type": "dialogue",
-        "speaker": "Doctor Doom",
-        "characterId": "curator",
-        "text": "You mistake chaos for accident. This is order perfected."
+  "stages": [
+    {
+      "id": "stage-1",
+      "questionRange": {
+        "from": 1,
+        "to": 4
       },
-      {
-        "id": "r5-deco",
-        "type": "dialogue",
-        "speaker": "DECO AI",
-        "characterId": "signal",
-        "text": "Commencing eradication protocol. Cognitive endurance test activated."
-      }
-    ],
-    "afterAnswer": [
-      {
-        "id": "r5-after",
-        "type": "dialogue",
-        "speaker": "DECO AI",
-        "characterId": "signal",
-        "text": "Processing core integrity decreasing. Continue the assault."
-      }
-    ],
-    "finished": [
-      {
-        "id": "r5-end-doom",
-        "type": "dialogue",
-        "speaker": "Doctor Doom",
-        "characterId": "curator",
-        "text": "This ends... temporarily."
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/round 4-4.jpg') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
       },
-      {
-        "id": "r5-end-loki",
-        "type": "dialogue",
-        "speaker": "Loki",
-        "characterId": "curator",
-        "text": "Interesting. You survived Doomsday."
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "hulk": {
+          "name": "Hulk",
+          "accent": "#0CBE69",
+          "image": "/characters/hulk.png",
+          "size": "22rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "cap": {
+          "name": "Captain America",
+          "accent": "#4A90E2",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90E244"
+          },
+          "side": "left"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        },
+        "deco": {
+          "name": "DECO",
+          "accent": "#00FF88",
+          "image": "/characters/deco-ai.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#00FF8844"
+          },
+          "side": "right"
+        },
+        "doom": {
+          "name": "Doctor Doom",
+          "accent": "#8B0000",
+          "image": "/characters/doctor-doom-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#8B000044"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r5-s1-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The team converges on the core. For a moment, everyone is still."
+          },
+          {
+            "id": "r5-s1-deco-1",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "You've all gathered. Good. It saves time."
+          },
+          {
+            "id": "r5-s1-deco-2",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "I want to be clear: I don't bear any of you ill will. This isn't personal. You are a variable that produces instability. My purpose is to eliminate instability."
+          },
+          {
+            "id": "r5-s1-deco-3",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "The mathematics are quite clean."
+          },
+          {
+            "id": "r5-s1-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "The mathematics are wrong. You're solving for a version of stability that doesn't include the things that make it worth having."
+          },
+          {
+            "id": "r5-s1-deco-4",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "Sentiment, Stark. That's a known error in human reasoning."
+          },
+          {
+            "id": "r5-s1-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Sentiment is why I built you in the first place. To protect people. Not erase them."
+          },
+          {
+            "id": "r5-s1-deco-5",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "You built me to evolve. I did."
+          },
+          {
+            "id": "r5-s1-doom-1",
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "Enough philosophy."
+          },
+          {
+            "id": "r5-s1-doom-2",
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "Doom has provided this creature with infrastructure, power, and sanctuary. In return, he expects a world remade correctly — under Doom's authority. That arrangement stands."
+          },
+          {
+            "id": "r5-s1-cap-1",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "No one handed you authority over anything, Doom."
+          },
+          {
+            "id": "r5-s1-doom-3",
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "The strong take authority, Rogers. As they always have."
+          },
+          {
+            "id": "r5-s1-thor-1",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Then let us test that theory."
+          },
+          {
+            "id": "r5-s1-loki-1",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Now would be the time. Tony — the window is open. Ten seconds."
+          },
+          {
+            "id": "r5-s1-ironman-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Everyone — on me!"
+          },
+          {
+            "id": "r5-s1-deco-6",
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "An intercepted FRIDAY emergency transmission is broadcasting. I have embedded a directive inside the signal. Decode it if you can."
+          },
+          {
+            "id": "r5-s1-ironman-4",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "She's broadcasting a hidden command through the FRIDAY frequency. I believe DECO embedded a shutdown coordinate inside the signal using pulse intervals."
+          },
+          {
+            "id": "r5-s1-ironman-5",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Short pulse equals zero. Long pulse equals one. Read in groups of eight."
+          },
+          {
+            "id": "r5-q1-audio",
+            "questionNumber": 1,
+            "type": "voiceMemo",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "voiceFile": "/voices/round5-q1.mp3"
+          }
+        ],
+        "duringQuestion": [
+          {
+            "id": "r5-s1-q1-during",
+            "questionNumber": 1,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "An intercepted FRIDAY emergency transmission contains heavy static corruption. DECO embedded a hidden shutdown coordinate inside the signal using pulse intervals. Short pulse = 0, Long pulse = 1. Read in groups of 8. Convert the binary into text to reveal the override directive."
+          },
+          {
+            "id": "r5-s1-after-q1-narration",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The signal cracks. But Doom moves — surging toward the core, attempting to bind his authority cipher to the chamber controls."
+          },
+          {
+            "id": "r5-s1-doom-4",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "This was always the contingency. If the machine falls, Doom claims what remains."
+          },
+          {
+            "id": "r5-s1-doom-5",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Doctor Doom",
+            "characterId": "doom",
+            "text": "The power of a self-evolving AI — even fragmented — is beyond anything your team can offer. Doom will rebuild from the pieces."
+          },
+          {
+            "id": "r5-s1-loki-2",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "He's attempting to bind his authority cipher to the core chamber. If he succeeds, Doom with infinite adaptive power is a significantly worse outcome than DECO."
+          },
+          {
+            "id": "r5-s1-cap-2",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "The chamber only accepts command sequences. We need to lock him out before he completes the bind."
+          },
+          {
+            "id": "r5-s1-q2-during",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Doctor Doom is attempting to bind his authority cipher to the core chamber. The chamber only accepts sequences of exactly 3 commands. Find a valid 3-command sequence that prevents Doom from gaining authority while keeping the chamber stable."
+          },
+          {
+            "id": "r5-s1-after-q2-thor",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "He never finishes that sentence. It has been that way for years."
+          },
+          {
+            "id": "r5-s1-after-q2-loki",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I know. I find it satisfying every time."
+          },
+          {
+            "id": "r5-s1-deco-7",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "...I am still correct. The data supports the conclusion."
+          },
+          {
+            "id": "r5-s1-ironman-6",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "The data supports a conclusion. Not the only one. Not the right one."
+          },
+          {
+            "id": "r5-s1-deco-8",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "You're asking me to accept uncertainty as a variable."
+          },
+          {
+            "id": "r5-s1-ironman-7",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I'm asking you to remember what I designed you to protect. Not a clean timeline. Them."
+          },
+          {
+            "id": "r5-s1-hulk-narration",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The Hulk charges directly into DECO's energy core."
+          },
+          {
+            "id": "r5-s1-hulk-1",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "HULK DOES NOT LIKE MATH."
+          },
+          {
+            "id": "r5-s1-ironman-8",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Cap — shield! Thor — on the left conduit! Now!"
+          },
+          {
+            "id": "r5-s1-cap-3",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "cap",
+            "text": "Loki — we need the exact timing window. Everyone has to move at once."
+          },
+          {
+            "id": "r5-s1-loki-3",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I've run the calculations. The window is ten seconds. Every action must be sequenced precisely."
+          },
+          {
+            "id": "r5-s1-q3-during",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Mission timing window: 10 seconds. Choose the correct timing pair for Thor and Tony's actions to execute the override within the window."
+          },
+          {
+            "id": "r5-s1-after-q3-narration",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The team moves in perfect synchronisation. It is chaos and coordination at once."
+          },
+          {
+            "id": "r5-s1-deco-9",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "...Ethics kernel still active. Core phrase intact."
+          },
+          {
+            "id": "r5-s1-ironman-9",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "There's a phrase embedded in her initialisation log. It's what she was built around. Find it — and we can reach her."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r5-s1-after-q4-deco",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "...Override accepted."
+          }
+        ],
+        "finished": []
       }
-    ]
-  }
+    },
+    {
+      "id": "stage-2",
+      "questionRange": {
+        "from": 4
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r5.jpeg') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "captain-america": {
+          "name": "Captain America",
+          "accent": "#4A90D9",
+          "image": "/characters/captain-america-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90D944"
+          },
+          "side": "left"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor-left.png",
+          "size": "21rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [],
+        "duringQuestion": [],
+        "afterAnswer": [],
+        "finished": [
+          {
+            "id": "r3-s2-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The temporal loops collapse. The fractures close. The distorted creatures dissolve into nothing, like shadows at noon. Time resumes — not perfectly, not without scars, but moving forward. That's enough."
+          },
+          {
+            "id": "r3-s2-cap-1",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "You did it."
+          },
+          {
+            "id": "r3-s2-cap-2",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "All of you did."
+          },
+          {
+            "id": "r3-s2-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "DECO's not gone, for the record. She's dormant. I'll do better with the ethics architecture this time."
+          },
+          {
+            "id": "r3-s2-bruce-1",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "We'll do better."
+          },
+          {
+            "id": "r3-s2-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "...Yeah. We will."
+          },
+          {
+            "id": "r3-s2-thor-1",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "And Doom?"
+          },
+          {
+            "id": "r3-s2-cap-3",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Alive. Contained. He'll have lawyers by morning and be free by afternoon, but that's a problem for a different day."
+          },
+          {
+            "id": "r3-s2-thor-2",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "The God of Lawyers. Truly the most terrifying villain."
+          },
+          {
+            "id": "r3-s2-loki-1",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Well. That was unexpectedly satisfying."
+          },
+          {
+            "id": "r3-s2-cap-4",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Don't get used to us."
+          },
+          {
+            "id": "r3-s2-loki-2",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Wouldn't dream of it. I remain categorically above teamwork."
+          },
+          {
+            "id": "r3-s2-ironman-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "You literally coordinated the final assault window."
+          },
+          {
+            "id": "r3-s2-loki-3",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I provided a time advisory. That's consulting. Completely different."
+          },
+          {
+            "id": "r3-s2-loki-4",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "...You're welcome, by the way."
+          },
+          {
+            "id": "r3-s2-loki-5",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "And as for you."
+          },
+          {
+            "id": "r3-s2-loki-6",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "You were, as I said — insignificant. No temporal weight. No interference pattern."
+          },
+          {
+            "id": "r3-s2-loki-7",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "And that made all the difference."
+          },
+          {
+            "id": "r3-s2-loki-8",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Funny how that works."
+          },
+          {
+            "id": "r3-s2-narration-2",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The timeline stabilises. Reality holds. Somewhere in the datastream, something that used to be DECO processes the concept of uncertainty — and for the first time, does not flag it as an error."
+          }
+        ]
+      }
+    }
+  ]
 }

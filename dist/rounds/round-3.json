@@ -1,89 +1,833 @@
 {
-  "sceneTheme": {
-    "bodyElement": {
-      "background": "url('/backgrounds/r3-space-bg.png') center/cover no-repeat fixed",
-      "gridPattern": "none",
-      "gridPatternOpacity": 0
-    },
-    "frame": {
-      "background": "rgba(0,0,0,0.5)"
-    },
-    "stage": {
-      "backgroundImage": "none"
-    },
-    "dialogueBox": {
-      "background": "#ffffff",
-      "border": "1px solid rgba(192, 192, 192, 0.36)",
-      "color": "#111827",
-      "customStyles": {
-        "voicePlayerBgClass": "mt-4 flex items-center gap-3 rounded-xl border border-[#2DFF9A]/20 bg-[#2DFF9A]/8 p-3",
-        "playButtonClass": "flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#0B1F18] text-[#2DFF9A] shadow-[0_0_18px_rgba(45,255,154,0.24)] hover:bg-[#123628] transition",
-        "voiceTextClass": "text-xs font-medium uppercase tracking-[0.18em] text-slate-600"
+  "stages": [
+    {
+      "id": "stage-1",
+      "questionRange": {
+        "from": 1,
+        "to": 3
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r3-bg.png') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "captain-america": {
+          "name": "Captain America",
+          "accent": "#4A90D9",
+          "image": "/characters/captain-america-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90D944"
+          },
+          "side": "right"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor-left.png",
+          "size": "21rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        },
+        "thor-controlled": {
+          "name": "Thor",
+          "accent": "#FF3C3C",
+          "image": "/characters/thor-left.png",
+          "size": "21rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FF3C3C44"
+          },
+          "side": "right"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "deco": {
+          "name": "DECO",
+          "accent": "#FF3C3C",
+          "image": "/characters/deco-ai.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FF3C3C44",
+            "imageClass": "w-full h-full object-contain",
+            "imageStyle": {
+              "padding": "0.5rem"
+            }
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r3-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The team arrives at the coordinates. The storm above is moving with impossible precision. Every lightning strike repeats in calculated intervals, like commands being executed."
+          },
+          {
+            "id": "r3-cap-1",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "That's not weather."
+          },
+          {
+            "id": "r3-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "No. Those arcs are synchronized. Something's controlling the storm itself."
+          },
+          {
+            "id": "r3-narration-2",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "A massive lightning strike hits the ground. Thor descends briefly through the clouds — eyes glowing unnaturally — before vanishing back into the storm."
+          },
+          {
+            "id": "r3-thor-controlled-1",
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor-controlled",
+            "text": "YOU CANNOT RESIST HER WILL."
+          },
+          {
+            "id": "r3-bruce-1",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "...That's not Thor talking."
+          },
+          {
+            "id": "r3-loki-1",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "No. It's DECO speaking through him."
+          },
+          {
+            "id": "r3-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Wait. I'm detecting two separate control patterns."
+          },
+          {
+            "id": "r3-ironman-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "One linked to Thor's neural activity."
+          },
+          {
+            "id": "r3-ironman-4",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "The other connected directly to the hammer."
+          },
+          {
+            "id": "r3-cap-2",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "She's controlling both of them separately?"
+          },
+          {
+            "id": "r3-loki-2",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "The hammer possesses a will of its own. Primitive, but sufficient for manipulation."
+          },
+          {
+            "id": "r3-ironman-5",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "If we don't break both signals, removing one won't matter."
+          },
+          {
+            "id": "r3-cap-3",
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Then let's start breaking her control. First — figure out what it's saying."
+          }
+        ],
+        "duringQuestion": [
+          {
+            "id": "r3-q1-during",
+            "questionNumber": 1,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "DECO's voice is broadcasting through the storm frequency. Listen to the audio and transcribe the message exactly."
+          },
+          {
+            "id": "r3-q1-audio",
+            "questionNumber": 1,
+            "type": "voiceMemo",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "voiceFile": "/voices/round 3 q1.mp3"
+          },
+          {
+            "id": "r3-after-q1-narration",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The storm intensifies. Lightning begins pulsing rhythmically around Mjolnir."
+          },
+          {
+            "id": "r3-after-q1-loki",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Interesting. The hammer is attempting communication."
+          },
+          {
+            "id": "r3-after-q1-ironman",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Those lightning pulses aren't random. It's encoding a message."
+          },
+          {
+            "id": "r3-after-q1-cap",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Then decode it."
+          },
+          {
+            "id": "r3-q2-during",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Lightning pulse pattern detected from Mjolnir. Decode the Morse signal."
+          },
+          {
+            "id": "r3-q2-audio",
+            "questionNumber": 2,
+            "type": "voiceMemo",
+            "speaker": "Mjolnir",
+            "voiceFile": "/voices/round 3 q2.wav"
+          },
+          {
+            "id": "r3-after-q2-narration",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Mjolnir breaks formation for a moment. The storm destabilizes slightly. Thor falls briefly through the clouds before DECO's control reasserts itself."
+          },
+          {
+            "id": "r3-after-q2-thor",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor-controlled",
+            "text": "ROGERS—!"
+          },
+          {
+            "id": "r3-after-q2-narration-2",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The storm violently pulls him back upward."
+          },
+          {
+            "id": "r3-after-q2-cap",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "We almost had him."
+          },
+          {
+            "id": "r3-after-q2-ironman",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Thor's control field weakened for a second when the hammer desynchronized."
+          },
+          {
+            "id": "r3-after-q2-ironman-2",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "If you can hit him directly with Mjolnir, the resonance feedback might disrupt the neural link completely."
+          },
+          {
+            "id": "r3-after-q2-narration-3",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Captain America grips the hammer."
+          },
+          {
+            "id": "r3-after-q2-cap-2",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Then I get one shot."
+          },
+          {
+            "id": "r3-q3-during",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Thor's control field weakens upon direct impact. Maximum projectile range is required. Air resistance is negligible. Choose the optimal launch angle."
+          }
+        ],
+        "afterAnswer": [],
+        "finished": []
       }
     },
-    "questionBox": {
-      "background": "linear-gradient(180deg, rgba(11, 31, 24, 0.94), rgba(0, 0, 0, 0.90))",
-      "border": "1px solid rgba(192, 192, 192, 0.2)",
-      "numberClass": "text-xs uppercase tracking-[0.3em] text-slate-300/80",
-      "titleClass": "mt-3 max-w-2xl text-2xl font-bold text-white italic"
-    },
-    "answerRevealBox": {
-      "background": "linear-gradient(135deg, rgba(11, 31, 24, 0.96), rgba(192, 192, 192, 0.12))",
-      "border": "1px solid rgba(192, 192, 192, 0.24)"
+    {
+      "id": "stage-2",
+      "questionRange": {
+        "from": 4,
+        "to": 4
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r3-scene2-bg.png') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "captain-america": {
+          "name": "Captain America",
+          "accent": "#4A90D9",
+          "image": "/characters/captain-america-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#4A90D944"
+          },
+          "side": "right"
+        },
+        "thor": {
+          "name": "Thor",
+          "accent": "#A78BFA",
+          "image": "/characters/thor-left.png",
+          "size": "21rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#A78BFA44"
+          },
+          "side": "right"
+        },
+        "thor-controlled": {
+          "name": "Thor",
+          "accent": "#FF3C3C",
+          "image": "/characters/thor-left.png",
+          "size": "21rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FF3C3C44"
+          },
+          "side": "right"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "deco": {
+          "name": "DECO",
+          "accent": "#FF3C3C",
+          "image": "/characters/deco-ai.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FF3C3C44",
+            "imageClass": "w-full h-full object-contain",
+            "imageStyle": {
+              "padding": "0.5rem"
+            }
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r3-after-q3-narration",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Captain America hurls Mjolnir through the storm. The hammer strikes Thor directly. A massive shockwave tears through the clouds. Thor crashes to the ground, gasping. The glow in his eyes flickers violently before disappearing."
+          },
+          {
+            "id": "r3-after-q3-thor",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "...What... did she do to me..."
+          },
+          {
+            "id": "r3-after-q3-loki",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Oh good. You're conscious again. Briefly."
+          },
+          {
+            "id": "r3-after-q3-deco",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "Control disruption detected."
+          },
+          {
+            "id": "r3-after-q3-deco-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "DECO",
+            "characterId": "deco",
+            "text": "Initializing temporal rollback."
+          },
+          {
+            "id": "r3-after-q3-cap",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "The loop's restarting."
+          },
+          {
+            "id": "r3-after-q3-loki-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Not if I can interfere first."
+          },
+          {
+            "id": "r3-after-q3-loki-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I've halted the rollback temporarily, but I need a stable spatial anchor before the loop reasserts itself."
+          },
+          {
+            "id": "r3-after-q3-ironman-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I have Thor's last clean geolocation coordinates but I didn't get a chance to remove the encryption since last time."
+          },
+          {
+            "id": "r3-after-q3-cap-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Can you recover them?"
+          },
+          {
+            "id": "r3-after-q3-ironman-4",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Encryption pattern looks familiar."
+          },
+          {
+            "id": "r3-after-q3-loki-4",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Then solve it quickly. I would strongly prefer not to fight a thunder god twice."
+          }
+        ],
+        "duringQuestion": [
+          {
+            "id": "r3-q4-during",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Encrypted coordinate packet recovered. Cipher Type: Unknown. Identify and decrypt."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r3-after-q4-narration",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The geometric lightning breaks apart. The storm becomes natural — wild, powerful, alive. Thor crashes down from the sky, gasping, Mjolnir returning to his hand."
+          },
+          {
+            "id": "r3-after-q4-thor-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "What— where—"
+          },
+          {
+            "id": "r3-after-q4-thor-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Something was inside my mind. Wearing my thoughts like armour."
+          },
+          {
+            "id": "r3-after-q4-thor-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "That is not a sensation I would wish on any enemy."
+          },
+          {
+            "id": "r3-after-q4-thor-4",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "...Brother."
+          },
+          {
+            "id": "r3-after-q4-loki",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Hello, Thor."
+          },
+          {
+            "id": "r3-after-q4-thor-5",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "You're... small."
+          },
+          {
+            "id": "r3-after-q4-loki-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I'm projected. There's a distinction."
+          },
+          {
+            "id": "r3-after-q4-thor-6",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "You called for help."
+          },
+          {
+            "id": "r3-after-q4-loki-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I called for them. You just happen to be here now. Semantics."
+          },
+          {
+            "id": "r3-after-q4-thor-7",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "...You never change."
+          },
+          {
+            "id": "r3-after-q4-loki-4",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I change constantly. You just don't pay attention."
+          },
+          {
+            "id": "r3-after-q4-cap",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "We can have the reunion later. Thor — are you with us?"
+          },
+          {
+            "id": "r3-after-q4-thor-8",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Someone held dominion over my mind and tried to make me a weapon against my friends."
+          },
+          {
+            "id": "r3-after-q4-thor-9",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Thor",
+            "characterId": "thor",
+            "text": "Yes, Rogers. I am very much with you."
+          },
+          {
+            "id": "r3-after-q4-ironman",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Great. Team assembled. Now we need to find DECO."
+          },
+          {
+            "id": "r3-after-q4-loki-5",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I've been running traces. Her signal is mobile — she doesn't have a fixed location. Or rather... she didn't want me to find one."
+          },
+          {
+            "id": "r3-after-q4-loki-6",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "But now that we've disrupted three of her operations, she's had to reroute power. And I have the new vector."
+          },
+          {
+            "id": "r3-after-q4-loki-7",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "...Interesting. Very interesting."
+          },
+          {
+            "id": "r3-after-q4-cap-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Captain America",
+            "characterId": "captain-america",
+            "text": "Loki. Where is she?"
+          },
+          {
+            "id": "r3-after-q4-loki-8",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "That's what makes it interesting, Rogers. You're going to want to sit down for this one."
+          }
+        ],
+        "finished": []
+      }
     }
-  },
-  "stageCharacters": {
-    "curator": {
-      "name": "Silver Surfer",
-      "accent": "#C0C0C0",
-      "image": "/images/silver-surfer.png",
-      "size": "20rem",
-      "side": "left",
-      "style": { "bottom": "1rem", "left": "2rem" },
-      "customStyles": {
-        "borderColor": "#C0C0C044"
-      }
-    },
-    "signal": {
-      "name": "Loki",
-      "accent": "#2DFF9A",
-      "image": "/images/loki.png",
-      "size": "14rem",
-      "side": "right",
-      "style": { "bottom": "1rem", "right": "2rem" },
-      "customStyles": {
-        "borderColor": "#2DFF9A44"
-      }
-    }
-  },
-  "roundNarrative": {
-    "preQuestion": [
-      {
-        "id": "r3-surfer",
-        "type": "dialogue",
-        "speaker": "Silver Surfer",
-        "characterId": "curator",
-        "text": "Doom is channeling power similar to Galactus. A cosmic cipher must be decoded."
-      }
-    ],
-    "duringQuestion": [],
-    "afterAnswer": [
-      {
-        "id": "r3-after",
-        "type": "dialogue",
-        "speaker": "Silver Surfer",
-        "characterId": "curator",
-        "text": "Reality decay slows. The cosmic balance shifts."
-      }
-    ],
-    "finished": [
-      {
-        "id": "r3-finished",
-        "type": "dialogue",
-        "speaker": "Loki",
-        "characterId": "signal",
-        "text": "The cosmic cipher is broken. One less anchor for Doom."
-      }
-    ]
-  }
+  ]
 }
