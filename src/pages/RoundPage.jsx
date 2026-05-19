@@ -562,12 +562,19 @@ export default function RoundPage({ onNav }) {
   const [dialogueVisible, setDialogueVisible] = useState(true)
   const [sceneTransition, setSceneTransition] = useState(null)
   const [showFlashback, setShowFlashback] = useState(false)
+  const [musicVolume, setMusicVolume] = useState(0.55)
   const [slotOccupants, setSlotOccupants] = useState({
     left: null,
     right: null,
   })
 
   const audioRef = useRef(null)
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = musicVolume
+    }
+  }, [musicVolume])
 
   // ─── BODY STYLING ──────────────────────────────────────────────────────────
   useEffect(() => {
@@ -1155,7 +1162,7 @@ export default function RoundPage({ onNav }) {
       )}
 
       {/* Top HUD — floating overlay */}
-      <div className="fixed top-0 left-0 right-0 z-30 pointer-events-none">
+      <div className="fixed top-0 left-0 right-0 z-[70] pointer-events-none">
   <div className="flex items-start justify-between p-3 sm:p-6 landscape:p-2 landscape:px-4 pointer-events-auto">
     <div className="rounded-2xl border border-[#2DFF9A]/10 bg-black/60 px-3 py-2 landscape:py-1.5 backdrop-blur-md">
       <div className="text-[10px] uppercase tracking-[0.35em] text-[#2DFF9A]/70">Active round</div>
@@ -1174,6 +1181,20 @@ export default function RoundPage({ onNav }) {
       <div className="pointer-events-auto flex flex-col items-end gap-2 scale-90 sm:scale-100 origin-top-right">
         <Timer targetTime={playableUntil} label="Time left"
           onExpire={() => finishRound({ silent: true })} />
+        <label className="flex items-center gap-2 rounded-2xl border border-[#2DFF9A]/10 bg-black/60 px-3 py-2 text-xs text-[#2DFF9A]/80 backdrop-blur-md">
+          <span className="uppercase tracking-[0.22em]">Music</span>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={musicVolume}
+            onChange={(event) => setMusicVolume(Number(event.target.value))}
+            aria-label="Background music volume"
+            className="h-1.5 w-24 accent-[#2DFF9A]"
+          />
+          <span className="w-8 text-right text-white">{Math.round(musicVolume * 100)}%</span>
+        </label>
       </div>
     )}
   </div>

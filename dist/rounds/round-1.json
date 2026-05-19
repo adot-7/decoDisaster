@@ -42,9 +42,10 @@
         "loki": {
           "name": "Loki",
           "accent": "#2DFF9A",
-          "image": "/images/loki.png",
+          "image": "/characters/loki-right.png",
+          "side": "left",
           "size": "20rem",
-          "style": { "bottom": "1rem", "left": "50%", "transform": "translateX(-50%)" },
+          "style": { "bottom": "1rem"},
           "customStyles": {
             "borderColor": "#2DFF9A44"
           }
@@ -248,7 +249,6 @@
           "borderRadiusClass": "rounded-[2rem]",
           "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
           "numberClass": "text-xs uppercase tracking-[0.3em] text-[#2DFF9A]/80",
-          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
           "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
           "minHeight": "23rem"
         },
@@ -266,20 +266,22 @@
       "stageCharacters": {
         "loki": {
           "name": "Loki",
+          "side": "left",
           "accent": "#2DFF9A",
-          "image": "/images/loki.png",
+          "image": "/characters/loki-right.png",
           "size": "20rem",
-          "style": { "bottom": "1rem", "left": "2rem" },
+          "style": { "bottom": "1rem"},
           "customStyles": {
             "borderColor": "#2DFF9A44"
           }
         },
         "captain": {
           "name": "Captain America",
+          "side": "right",
           "accent": "#2DFF9A",
-          "image": "/characters/captain-america.png",
+          "image": "/characters/captain-america-left.png",
           "size": "18rem",
-          "style": { "bottom": "1rem", "right": "2rem" },
+          "style": { "bottom": "1rem" },
           "customStyles": {
             "borderColor": "#2DFF9A44"
           }
@@ -315,11 +317,10 @@
             "text": "You're going to have to explain yourself fast. I've got about thirty seconds before those things reset."
           },
           {
-            "id": "captain-4",
+            "id": "narration-player-explains",
             "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
-            "text": "(Player explains — Loki sent them)"
+            "speaker": "Narrator",
+            "text": "Player explains — Loki sent them."
           },
           {
             "id": "captain-5",
@@ -383,16 +384,14 @@
             "id": "q1-during",
             "questionNumber": 1,
             "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
+            "speaker": "Narrator",
             "text": "Captain America has isolated three unstable sectors. Identify which sector is on the verge of antimatter collapse."
           },
           {
             "id": "q2-during",
             "questionNumber": 2,
             "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
+            "speaker": "Narrator",
             "text": "Distortion waves are destabilizing the city grid. Captain America's vibranium shield can act as a counter-resonance conductor if phase opposition is maintained."
           },
           {
@@ -621,44 +620,11 @@
             "text": "How delightfully manual. Off you go."
           },
           {
-            "id": "after-q3-1",
-            "questionNumber": 3,
+            "id": "narration-loop-resolved",
+            "questionNumber": 4,
             "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
-            "text": "...You sure that's the right one?"
-          },
-          {
-            "id": "after-q3-2",
-            "questionNumber": 3,
-            "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
-            "text": "Because the loop's still holding together."
-          },
-          {
-            "id": "loki-fracture",
-            "questionNumber": 3,
-            "type": "dialogue",
-            "speaker": "Loki",
-            "characterId": "loki",
-            "text": "Mm. Either you've found the fracture... or the timeline wants you to think you have."
-          },
-          {
-            "id": "captain-check-again",
-            "questionNumber": 3,
-            "type": "dialogue",
-            "speaker": "Captain America",
-            "characterId": "captain",
-            "text": "Check it again. Carefully."
-          },
-          {
-            "id": "loki-reality",
-            "questionNumber": 3,
-            "type": "dialogue",
-            "speaker": "Loki",
-            "characterId": "loki",
-            "text": "Reality rarely repeats perfectly. That's the problem with forcing perfection."
+            "speaker": "Narrator",
+            "text": "After the puzzle is solved — the loop fractures. The distorted creatures dissolve. The city stabilises."
           },
           {
             "id": "resolution-1",

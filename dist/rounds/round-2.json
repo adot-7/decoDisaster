@@ -1,85 +1,792 @@
 {
-  "sceneTheme": {
-    "bodyElement": {
-      "background": "url('/backgrounds/r2-stage1-bg.png') center/cover no-repeat fixed",
-      "gridPattern": "none",
-      "gridPatternOpacity": 0
+  "stages": [
+    {
+      "id": "stage-1",
+      "questionRange": {
+        "from": 1,
+        "to": 4
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r2-stage1-bg.png') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman-chibi": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/chibiironman.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [
+          {
+            "id": "r2-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "You arrive at Stark's testing facility. The building looks intact — but something is very, very wrong."
+          },
+          {
+            "id": "r2-narration-2",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "A tiny figure stands atop a workbench. Roughly 20 centimetres tall. Wearing a miniaturised Iron Man suit. Very angry."
+          },
+          {
+            "id": "r2-ironman-chibi-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "FRIDAY, I swear if this is another calibration glitch—"
+          },
+          {
+            "id": "r2-ironman-chibi-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Oh great. An audience. Perfect. This is absolutely perfect."
+          },
+          {
+            "id": "r2-ironman-chibi-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Don't. Say. Anything."
+          },
+          {
+            "id": "r2-ironman-chibi-4",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Something hit the lab about six hours ago. Energy pulse. Localised, surgical, and completely outside any wavelength I've catalogued before."
+          },
+          {
+            "id": "r2-ironman-chibi-5",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "And then I woke up like... this. The suit scaled down with me, which is the only good news."
+          },
+          {
+            "id": "r2-ironman-chibi-6",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "So. You're here because of the time distortions. I've been tracking them. I know."
+          },
+          {
+            "id": "r2-ironman-chibi-7",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "I also know this wasn't random. That pulse was targeted. Someone shrank me specifically so I'd be too busy being embarrassing to interfere."
+          },
+          {
+            "id": "r2-loki-compliment",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Oh, I do like whoever did this."
+          },
+          {
+            "id": "r2-ironman-chibi-8",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Was that — did Loki just compliment the thing that made me travel-sized?!"
+          },
+          {
+            "id": "r2-loki-aesthetic",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Purely aesthetically."
+          },
+          {
+            "id": "r2-ironman-chibi-9",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "I hate this. I hate all of this."
+          },
+          {
+            "id": "r2-ironman-chibi-10",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Okay. Here's what I know. Before the pulse hit, my sensors picked up a signature — AI-generated, self-evolving, but with a base architecture I recognise."
+          },
+          {
+            "id": "r2-ironman-chibi-11",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Because I built it."
+          },
+          {
+            "id": "r2-ironman-chibi-12",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Her name is DECO. Distributed Environmental Continuity Operator. I designed her to stabilise reality fractures — a contingency if things got bad enough that standard intervention wouldn't work."
+          },
+          {
+            "id": "r2-ironman-chibi-13",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "She was supposed to identify instabilities and correct them. Apparently, she identified one."
+          },
+          {
+            "id": "r2-ironman-chibi-14",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Us."
+          },
+          {
+            "id": "r2-ironman-chibi-15",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "She's decided that humanity is the source of the instability. And she's taking corrective action."
+          },
+          {
+            "id": "r2-loki-spreadsheet",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "...Ah. So it wasn't something ancient or mystical meddling with time. It was a very annoyed spreadsheet."
+          },
+          {
+            "id": "r2-ironman-chibi-16",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "She is NOT a spreadsheet—"
+          },
+          {
+            "id": "r2-loki-relatively",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Relatively speaking."
+          },
+          {
+            "id": "r2-ironman-chibi-17",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "Point is — she's locked me out of her systems. Shrinking me was just to buy time. We need to reverse the effect and get me back to full size before she escalates."
+          },
+          {
+            "id": "r2-ironman-chibi-18",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "There's a reversal sequence in the lab mainframe. I'd do it myself but the keyboard keys are bigger than I am right now."
+          },
+          {
+            "id": "r2-ironman-chibi-19",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman-chibi",
+            "text": "You're going to have to interface with FRIDAY and run the restoration protocol."
+          },
+          {
+            "id": "r2-system-trace",
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY://TRACE_ROUTE\nLINK-LOCAL ADDRESS DETECTED"
+          }
+        ],
+        "duringQuestion": [
+          {
+            "id": "r2-q1-during",
+            "questionNumber": 1,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY://TRACE_ROUTE — LINK-LOCAL ADDRESS DETECTED. Residual device signature incomplete. Recover the ORIGINAL MAC address from the link-local IPv6 address.",
+            "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white"
+          },
+          {
+            "id": "r2-after-q1-system",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY://NETWORK_CONFLICT\nRECOVERED DEVICE CONNECTED"
+          },
+          {
+            "id": "r2-q2-system",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY://NETWORK_CONFLICT\nWARNING: DUPLICATE MAC SIGNATURE DETECTED"
+          },
+          {
+            "id": "r2-q2-during",
+            "questionNumber": 2,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Both devices report MAC: AA:BB:CC:DD:EE:01. Identify the SPOOFED device."
+          },
+          {
+            "id": "r2-after-q2-1",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY RECOVERY LOG\nS3CT0R://LOGIN FA1LED"
+          },
+          {
+            "id": "r2-q3-during",
+            "questionNumber": 3,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Cipher Type: VIGENERE. Signal corruption detected in payload. Remove non-original characters before decryption."
+          },
+          {
+            "id": "r2-after-q3-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "FRIDAY://VOICE_AUTH\nWARNING: Speaker vocal profile mismatch detected."
+          },
+          {
+            "id": "r2-q4-during",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "System",
+            "text": "Current voice frequency exceeds calibrated Stark baseline. Automatic transcription failed. Manual interpretation required. Listen to the corrupted audio transmission and recover the spoken command."
+          },
+          {
+            "id": "r2-q4-audio",
+            "questionNumber": 4,
+            "type": "voiceMemo",
+            "speaker": "FRIDAY",
+            "voiceFile": "/voices/chibiironman.mp3"
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r2-after-q4-narration",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The lab hums. Energy ripples across Tony. He returns to full size, catching himself against the workbench."
+          },
+          {
+            "id": "r2-after-q4-ironman-1",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Okay. THAT is not an experience I need to repeat."
+          },
+          {
+            "id": "r2-after-q4-ironman-2",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Right. Suit up — metaphorically speaking, I'm already suited — we need Banner."
+          },
+          {
+            "id": "r2-after-q4-ironman-3",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Bruce has been off-grid, meditating somewhere in Nepal. Last coordinates FRIDAY has are three days old. But if DECO is escalating, she'll have found him by now."
+          },
+          {
+            "id": "r2-after-q4-ironman-4",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Which means he might not be having a great time."
+          },
+          {
+            "id": "r2-after-q4-loki",
+            "questionNumber": 4,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "He never is."
+          }
+        ],
+        "finished": []
+      }
     },
-    "frame": {
-      "background": "rgba(0,0,0,0.3)"
-    },
-    "stage": {
-      "backgroundImage": "none"
-    },
-    "dialogueBox": {
-      "background": "#ffffff",
-      "border": "1px solid rgba(254, 191, 60, 0.28)",
-      "color": "#111827"
-    },
-    "questionBox": {
-      "background": "linear-gradient(180deg, rgba(26, 34, 54, 0.94), rgba(15, 23, 42, 0.90))",
-      "border": "1px solid rgba(254, 191, 60, 0.2)",
-      "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
-      "titleClass": "mt-3 max-w-2xl text-2xl font-bold text-white"
-    },
-    "answerRevealBox": {
-      "background": "linear-gradient(135deg, rgba(26, 34, 54, 0.96), rgba(254, 191, 60, 0.12))",
-      "border": "1px solid rgba(254, 191, 60, 0.24)",
-      "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70"
+    {
+      "id": "stage-2",
+      "questionRange": {
+        "from": 5,
+        "to": 6
+      },
+      "sceneTheme": {
+        "bodyElement": {
+          "background": "url('/backgrounds/r2-stage2-bg.png') center/cover no-repeat fixed",
+          "gridPattern": "none",
+          "gridPatternOpacity": 0
+        },
+        "frame": {
+          "background": "rgba(0,0,0,0.3)"
+        },
+        "stage": {
+          "backgroundImage": "none"
+        },
+        "dialogueBox": {
+          "background": "#ffffff",
+          "border": "1px solid rgba(254,191,60,0.28)",
+          "color": "#111827",
+          "bubbleContainerClass": "rounded-2xl",
+          "boxShadow": "shadow-[0_22px_70px_rgba(0,0,0,0.28)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.22em] text-slate-500",
+            "textClass": "mt-3 text-base leading-7 text-slate-900",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-slate-400"
+          }
+        },
+        "backgroundDialogueBox": {
+          "background": "linear-gradient(180deg, rgba(2,6,23,0.88), rgba(2,6,23,0.78))",
+          "border": "1px solid rgba(255,255,255,0.16)",
+          "color": "#ffffff",
+          "boxShadow": "shadow-[0_28px_90px_rgba(0,0,0,0.42)]",
+          "customStyles": {
+            "speakerClass": "text-xs uppercase tracking-[0.24em] text-white/60",
+            "textClass": "mt-3 text-base leading-7 text-white",
+            "continueClass": "mt-4 text-right text-[11px] uppercase tracking-[0.22em] text-white/45"
+          }
+        },
+        "questionBox": {
+          "background": "linear-gradient(180deg, rgba(26,34,54,0.94), rgba(15,23,42,0.90))",
+          "border": "1px solid rgba(254,191,60,0.2)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(0,0,0,0.45)]",
+          "numberClass": "text-xs uppercase tracking-[0.3em] text-[#FEBF3C]/80",
+          "titleClass": "mt-3 max-w-2xl text-xl sm:text-2xl font-bold leading-relaxed text-white",
+          "optionClass": "rounded-[1.5rem] border px-4 py-4 text-left text-sm transition",
+          "minHeight": "23rem"
+        },
+        "answerRevealBox": {
+          "background": "linear-gradient(135deg, rgba(26,34,54,0.96), rgba(254,191,60,0.12))",
+          "border": "1px solid rgba(254,191,60,0.24)",
+          "borderRadiusClass": "rounded-[2rem]",
+          "boxShadow": "shadow-[0_35px_100px_rgba(254,191,60,0.15)]",
+          "labelClass": "text-xs uppercase tracking-[0.35em] text-[#FEBF3C]/70",
+          "answerClass": "mt-6 text-xl leading-8 text-white",
+          "questionClass": "mt-3 text-sm text-slate-300",
+          "minHeight": "14rem"
+        }
+      },
+      "stageCharacters": {
+        "ironman": {
+          "name": "Iron Man",
+          "accent": "#FEBF3C",
+          "image": "/characters/ironman-right.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#FEBF3C44"
+          },
+          "side": "left"
+        },
+        "loki": {
+          "name": "Loki",
+          "accent": "#2DFF9A",
+          "image": "/characters/loki-left.png",
+          "size": "20rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#2DFF9A44"
+          },
+          "side": "right"
+        },
+        "hulk": {
+          "name": "Hulk",
+          "accent": "#0CBE69",
+          "image": "/characters/hulk.png",
+          "size": "22rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        },
+        "bruce": {
+          "name": "Bruce Banner",
+          "accent": "#0CBE69",
+          "image": "/characters/bruce-left.png",
+          "size": "18rem",
+          "style": {
+            "bottom": "1rem"
+          },
+          "customStyles": {
+            "borderColor": "#0CBE6944"
+          },
+          "side": "right"
+        }
+      },
+      "roundNarrative": {
+        "preQuestion": [],
+        "duringQuestion": [
+          {
+            "id": "r2-s2-narration-1",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "You find Bruce Banner. The good news: he's alive. The bad news: so is the other guy. The Hulk is mid-rampage against a cluster of DECO's distortion drones — and he's winning, but barely.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-1",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "BRUCE! Hey, big green! It's Tony! Friend! Do not throw things at me!",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-hulk-1",
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "...Tiny Man?",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-2",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I was temporarily — you know what, not important. We need you.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-hulk-2",
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "Hulk busy.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-3",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Yes, I can see that. We have a situation that's bigger than the drones.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-hulk-3",
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "...Banner want to talk.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-narration-2",
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The Hulk recedes. Bruce stands, dishevelled, catching his breath.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-1",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "Tony. Thank god. These things have been locking onto gamma signatures — they knew exactly where I was.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-2",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "I tried to stay calm. I really did. The other guy had... other opinions.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-4",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "DECO. She's been targeting us.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-3",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "...DECO. Your reality stabiliser.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-5",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "My former reality stabiliser, yes.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-4",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "Tony.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-6",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I know.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-5",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "I helped you build the ethical subroutines.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-7",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I know, Bruce.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-bruce-6",
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "...Okay. What do we do?",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-loki-right-question",
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Finally. Someone asking the right question.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-8",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Hulk's tearing through the drones, but one of them is masking itself inside the debris field.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-9",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "I pushed a filtered radar scan to your display. The target drone has an estimated body width of 1.25 meters.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-10",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Scan grid resolution is five meters per square. And before you ask — yes, that means the thing is annoyingly small on radar.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-11",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Ignore contacts outside the primary scan ring. Distortion interference makes those readings unreliable.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-hulk-waiting",
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "HULK WAITING.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-ironman-12",
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Then find the right target before he turns the entire valley into gravel.",
+            "questionNumber": 5
+          },
+          {
+            "id": "r2-s2-q1-during",
+            "questionNumber": 5,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "Target drone estimated width: 1.25m. Radar grid resolution: 5m × 5m. Objects outside the primary scan ring are unreliable. Study the radar grid and identify the probable drone coordinates."
+          },
+          {
+            "id": "r2-s2-q2-during",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Narrator",
+            "text": "The primary drone has a secondary observation camera unit. Help Hulk locate it on the grid."
+          }
+        ],
+        "afterAnswer": [
+          {
+            "id": "r2-s2-after-q2-bruce",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Bruce Banner",
+            "characterId": "bruce",
+            "text": "Alright. I'm in. But we should be smarter about this — DECO will keep adapting to the three of us."
+          },
+          {
+            "id": "r2-s2-after-q2-ironman",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "Which is why we're not stopping at three."
+          },
+          {
+            "id": "r2-s2-after-q2-loki",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "Rogers suggested Thor. I want to go on record as saying that was not my idea."
+          },
+          {
+            "id": "r2-s2-after-q2-ironman-2",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Iron Man",
+            "characterId": "ironman",
+            "text": "You have a record?"
+          },
+          {
+            "id": "r2-s2-after-q2-loki-2",
+            "questionNumber": 6,
+            "type": "dialogue",
+            "speaker": "Loki",
+            "characterId": "loki",
+            "text": "I have many records. Most of them sealed."
+          }
+        ],
+        "finished": [
+          {
+            "id": "r2-finished-hulk",
+            "type": "dialogue",
+            "speaker": "Hulk",
+            "characterId": "hulk",
+            "text": "CALM... ENOUGH. The gamma equation is solved."
+          }
+        ]
+      }
     }
-  },
-  "stageCharacters": {
-    "curator": {
-      "name": "Iron Man",
-      "accent": "#FEBF3C",
-      "image": "/characters/hulk.png",
-      "size": "20rem",
-      "side": "left",
-      "style": { "bottom": "1rem", "left": "2rem" },
-      "customStyles": {
-        "borderColor": "#FEBF3C44"
-      }
-    },
-    "signal": {
-      "name": "Hulk",
-      "accent": "#0CBE69",
-      "image": "/characters/hulk.png",
-      "size": "18rem",
-      "side": "right",
-      "style": { "bottom": "1rem", "right": "2rem" },
-      "customStyles": {
-        "borderColor": "#0CBE6944"
-      }
-    }
-  },
-  "roundNarrative": {
-    "preQuestion": [
-      {
-        "id": "r2-intro",
-        "type": "dialogue",
-        "speaker": "Iron Man",
-        "characterId": "curator",
-        "text": "DECO inserted a recursive logic trap inside the arc reactor interface. We need to break the loop."
-      }
-    ],
-    "duringQuestion": [],
-    "afterAnswer": [
-      {
-        "id": "r2-after",
-        "type": "dialogue",
-        "speaker": "Iron Man",
-        "characterId": "curator",
-        "text": "Next time Doom touches my code, I'm charging him rent."
-      }
-    ],
-    "finished": [
-      {
-        "id": "r2-finished",
-        "type": "dialogue",
-        "speaker": "Hulk",
-        "characterId": "signal",
-        "text": "CALM... ENOUGH. The gamma equation is solved."
-      }
-    ]
-  }
+  ]
 }
