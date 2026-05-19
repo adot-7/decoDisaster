@@ -1164,37 +1164,40 @@ export default function RoundPage({ onNav }) {
       {/* Top HUD — floating overlay */}
       <div className="fixed top-0 left-0 right-0 z-[70] pointer-events-none">
   <div className="flex items-start justify-between p-3 sm:p-6 landscape:p-2 landscape:px-4 pointer-events-auto">
-    <div className="rounded-2xl border border-[#2DFF9A]/10 bg-black/60 px-3 py-2 landscape:py-1.5 backdrop-blur-md">
-      <div className="text-[10px] uppercase tracking-[0.35em] text-[#2DFF9A]/70">Active round</div>
-      <div className="mt-0.5 text-base sm:text-xl landscape:text-sm font-bold text-white">
-        Round #{round?.id}
-      </div>
-      <div className="mt-1.5 flex items-center gap-3">
-        <div className="h-1.5 w-20 sm:w-24 overflow-hidden rounded-full bg-white/10">
-          <div className="h-full rounded-full bg-[#2DFF9A] transition-all duration-500"
-            style={{ width: `${progress}%` }} />
-        </div>
-        <span className="text-xs text-[#2DFF9A]/80">{answeredCount}/{totalQuestions}</span>
-      </div>
+    <div className="rounded-2xl border border-[#2DFF9A]/10 bg-black/60 px-3 py-2 landscape:py-1.5 backdrop-blur-md flex items-center gap-4">
+  <div>
+    <div className="text-[10px] uppercase tracking-[0.35em] text-[#2DFF9A]/70">Active round</div>
+    <div className="mt-0.5 text-base sm:text-xl landscape:text-sm font-bold text-white">
+      Round #{round?.id}
     </div>
+    <div className="mt-1.5 flex items-center gap-3">
+      <div className="h-1.5 w-20 sm:w-24 overflow-hidden rounded-full bg-white/10">
+        <div className="h-full rounded-full bg-[#2DFF9A] transition-all duration-500"
+          style={{ width: `${progress}%` }} />
+      </div>
+      <span className="text-xs text-[#2DFF9A]/80">{answeredCount}/{totalQuestions}</span>
+    </div>
+  </div>
+  <label className="flex items-center gap-2 border-l border-[#2DFF9A]/10 pl-4 text-xs text-[#2DFF9A]/80">
+    <span className="uppercase tracking-[0.22em]">Music</span>
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value={musicVolume}
+      onChange={(event) => setMusicVolume(Number(event.target.value))}
+      aria-label="Background music volume"
+      className="h-1.5 w-24 accent-[#2DFF9A]"
+    />
+    <span className="w-8 text-right text-white">{Math.round(musicVolume * 100)}%</span>
+  </label>
+</div>
     {playableUntil && (
       <div className="pointer-events-auto flex flex-col items-end gap-2 scale-90 sm:scale-100 origin-top-right">
         <Timer targetTime={playableUntil} label="Time left"
           onExpire={() => finishRound({ silent: true })} />
-        <label className="flex items-center gap-2 rounded-2xl border border-[#2DFF9A]/10 bg-black/60 px-3 py-2 text-xs text-[#2DFF9A]/80 backdrop-blur-md">
-          <span className="uppercase tracking-[0.22em]">Music</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={musicVolume}
-            onChange={(event) => setMusicVolume(Number(event.target.value))}
-            aria-label="Background music volume"
-            className="h-1.5 w-24 accent-[#2DFF9A]"
-          />
-          <span className="w-8 text-right text-white">{Math.round(musicVolume * 100)}%</span>
-        </label>
+        
       </div>
     )}
   </div>
