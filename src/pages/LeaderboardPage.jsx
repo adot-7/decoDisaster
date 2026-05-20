@@ -41,7 +41,7 @@ export default function LeaderboardPage() {
 
     try {
       const result = await api.get(`/api/leaderboard?page=${newPage}&limit=20`)
-      console.log('Leaderboard response:', result);
+      
       
       setEntries(result?.data || [])
       setTotalPages(result?.totalPages || 1)
@@ -68,7 +68,7 @@ export default function LeaderboardPage() {
   const loadMyRank = async () => {
     try {
       const result = await api.get('/api/leaderboard/me')
-      console.log('My rank response:', result);
+      
       if (result?.status && result?.isAvailable) {
         setMyRank(result)
       } else {
