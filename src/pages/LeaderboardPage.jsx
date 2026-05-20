@@ -162,10 +162,6 @@ export default function LeaderboardPage() {
     {
       name: "Bhavay Mahore",
       url: "https://www.instagram.com/piilkox/"
-    },
-    {
-      name: "Harsh Anand",
-      url: ""
     }
   ]
 
