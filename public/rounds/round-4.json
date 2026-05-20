@@ -890,7 +890,7 @@
         "thor": {
           "name": "Thor",
           "accent": "#A78BFA",
-          "image": "/characters/thor1.png",
+          "image": "/characters/thor-left.png",
           "size": "20rem",
           "style": {
             "bottom": "1rem"
